@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Throughput" targetNamespace="http://tempuri.org/Throughput.xsd" xmlns:mstns="http://tempuri.org/Throughput.xsd" xmlns="http://tempuri.org/Throughput.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Throughput" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Throughput" msprop:Generator_UserDSName="Throughput">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CummulativeReport" msprop:Generator_TableClassName="CummulativeReportDataTable" msprop:Generator_TableVarName="tableCummulativeReport" msprop:Generator_TablePropName="CummulativeReport" msprop:Generator_RowDeletingName="CummulativeReportRowDeleting" msprop:Generator_RowChangingName="CummulativeReportRowChanging" msprop:Generator_RowEvHandlerName="CummulativeReportRowChangeEventHandler" msprop:Generator_RowDeletedName="CummulativeReportRowDeleted" msprop:Generator_UserTableName="CummulativeReport" msprop:Generator_RowChangedName="CummulativeReportRowChanged" msprop:Generator_RowEvArgName="CummulativeReportRowChangeEvent" msprop:Generator_RowClassName="CummulativeReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ShippingLine" msprop:Generator_ColumnVarNameInTable="columnShippingLine" msprop:Generator_ColumnPropNameInRow="ShippingLine" msprop:Generator_ColumnPropNameInTable="ShippingLineColumn" msprop:Generator_UserColumnName="ShippingLine" type="xs:string" minOccurs="0" />
+              <xs:element name="Berth" msprop:Generator_ColumnVarNameInTable="columnBerth" msprop:Generator_ColumnPropNameInRow="Berth" msprop:Generator_ColumnPropNameInTable="BerthColumn" msprop:Generator_UserColumnName="Berth" type="xs:long" minOccurs="0" />
+              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:long" minOccurs="0" />
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:long" minOccurs="0" />
+              <xs:element name="InboundLoaded20" msprop:Generator_ColumnVarNameInTable="columnInboundLoaded20" msprop:Generator_ColumnPropNameInRow="InboundLoaded20" msprop:Generator_ColumnPropNameInTable="InboundLoaded20Column" msprop:Generator_UserColumnName="InboundLoaded20" type="xs:long" minOccurs="0" />
+              <xs:element name="InboundLoaded40" msprop:Generator_ColumnVarNameInTable="columnInboundLoaded40" msprop:Generator_ColumnPropNameInRow="InboundLoaded40" msprop:Generator_ColumnPropNameInTable="InboundLoaded40Column" msprop:Generator_UserColumnName="InboundLoaded40" type="xs:long" minOccurs="0" />
+              <xs:element name="InboundLoaded45" msprop:Generator_ColumnVarNameInTable="columnInboundLoaded45" msprop:Generator_ColumnPropNameInRow="InboundLoaded45" msprop:Generator_ColumnPropNameInTable="InboundLoaded45Column" msprop:Generator_UserColumnName="InboundLoaded45" type="xs:long" minOccurs="0" />
+              <xs:element name="InboundEmpty20" msdata:Caption="InboundLoaded20" msprop:Generator_ColumnVarNameInTable="columnInboundEmpty20" msprop:Generator_ColumnPropNameInRow="InboundEmpty20" msprop:Generator_ColumnPropNameInTable="InboundEmpty20Column" msprop:Generator_UserColumnName="InboundEmpty20" type="xs:long" minOccurs="0" />
+              <xs:element name="InboundEmpty40" msdata:Caption="InboundLoaded40" msprop:Generator_ColumnVarNameInTable="columnInboundEmpty40" msprop:Generator_ColumnPropNameInRow="InboundEmpty40" msprop:Generator_ColumnPropNameInTable="InboundEmpty40Column" msprop:Generator_UserColumnName="InboundEmpty40" type="xs:long" minOccurs="0" />
+              <xs:element name="InboundEmpty45" msdata:Caption="InboundLoaded45" msprop:Generator_ColumnVarNameInTable="columnInboundEmpty45" msprop:Generator_ColumnPropNameInRow="InboundEmpty45" msprop:Generator_ColumnPropNameInTable="InboundEmpty45Column" msprop:Generator_UserColumnName="InboundEmpty45" type="xs:long" minOccurs="0" />
+              <xs:element name="OutboundLoaded20" msdata:Caption="InboundLoaded20" msprop:Generator_ColumnVarNameInTable="columnOutboundLoaded20" msprop:Generator_ColumnPropNameInRow="OutboundLoaded20" msprop:Generator_ColumnPropNameInTable="OutboundLoaded20Column" msprop:Generator_UserColumnName="OutboundLoaded20" type="xs:long" minOccurs="0" />
+              <xs:element name="OutboundLoaded40" msdata:Caption="InboundLoaded40" msprop:Generator_ColumnVarNameInTable="columnOutboundLoaded40" msprop:Generator_ColumnPropNameInRow="OutboundLoaded40" msprop:Generator_ColumnPropNameInTable="OutboundLoaded40Column" msprop:Generator_UserColumnName="OutboundLoaded40" type="xs:long" minOccurs="0" />
+              <xs:element name="OutboundLoaded45" msdata:Caption="InboundLoaded45" msprop:Generator_ColumnVarNameInTable="columnOutboundLoaded45" msprop:Generator_ColumnPropNameInRow="OutboundLoaded45" msprop:Generator_ColumnPropNameInTable="OutboundLoaded45Column" msprop:Generator_UserColumnName="OutboundLoaded45" type="xs:long" minOccurs="0" />
+              <xs:element name="OutboundEmpty20" msdata:Caption="InboundLoaded20" msprop:Generator_ColumnVarNameInTable="columnOutboundEmpty20" msprop:Generator_ColumnPropNameInRow="OutboundEmpty20" msprop:Generator_ColumnPropNameInTable="OutboundEmpty20Column" msprop:Generator_UserColumnName="OutboundEmpty20" type="xs:long" minOccurs="0" />
+              <xs:element name="OutboundEmpty40" msdata:Caption="InboundLoaded40" msprop:Generator_ColumnVarNameInTable="columnOutboundEmpty40" msprop:Generator_ColumnPropNameInRow="OutboundEmpty40" msprop:Generator_ColumnPropNameInTable="OutboundEmpty40Column" msprop:Generator_UserColumnName="OutboundEmpty40" type="xs:long" minOccurs="0" />
+              <xs:element name="OutboundEmpty45" msdata:Caption="InboundLoaded45" msprop:Generator_ColumnVarNameInTable="columnOutboundEmpty45" msprop:Generator_ColumnPropNameInRow="OutboundEmpty45" msprop:Generator_ColumnPropNameInTable="OutboundEmpty45Column" msprop:Generator_UserColumnName="OutboundEmpty45" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Lines" msprop:Generator_TableClassName="LinesDataTable" msprop:Generator_TableVarName="tableLines" msprop:Generator_TablePropName="Lines" msprop:Generator_RowDeletingName="LinesRowDeleting" msprop:Generator_RowChangingName="LinesRowChanging" msprop:Generator_RowEvHandlerName="LinesRowChangeEventHandler" msprop:Generator_RowDeletedName="LinesRowDeleted" msprop:Generator_UserTableName="Lines" msprop:Generator_RowChangedName="LinesRowChanged" msprop:Generator_RowEvArgName="LinesRowChangeEvent" msprop:Generator_RowClassName="LinesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="line_op" msprop:Generator_ColumnVarNameInTable="columnline_op" msprop:Generator_ColumnPropNameInRow="line_op" msprop:Generator_ColumnPropNameInTable="line_opColumn" msprop:Generator_UserColumnName="line_op" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
