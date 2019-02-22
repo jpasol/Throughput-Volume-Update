@@ -16,95 +16,15 @@ Public Class MonthlyThroughputVolume
         VesselMovementReports = New List(Of VMRClass)
         RetrieveVesselMovementReports(Month, Year)
 
-        VesselLines = New Dictionary(Of String, String())
-        VesselLines = ReadVesselLinesCSV()
-
-        FullNames = New Dictionary(Of String, String)
-        FullNames = ReadFullNamesCSV()
+        ShippingLines = New Dictionary(Of String, String())
+        ShippingLines = ReadShippingLinesCSV()
 
         VesselVolumes = New List(Of VesselVolume)
         CreateVesselVolumes(VesselMovementReports)
 
         CheckWindowStates(VesselVolumes)
-
-        MonthlyThroughputData = New ThroughputVolumeDatabase
-        FormatMonthlyThroughputReport(VesselVolumes)
-
-        FormatFullNames(FullNames)
-
-        Report = New MonthlyThroughputReport
-        Report.SetDataSource(MonthlyThroughputData)
-        Report.SetParameterValue("month", Month)
-        Report.SetParameterValue("year", Year)
     End Sub
 
-    Private Sub FormatFullNames(fullNames As Dictionary(Of String, String))
-        For Each key As String In fullNames.Keys
-            MonthlyThroughputData.FullNames.AddFullNamesRow(key, fullNames(key))
-        Next
-    End Sub
-
-    Private Sub FormatMonthlyThroughputReport(vesselVolumes As List(Of VesselVolume))
-        Dim freightkinds As String() = {"FCL", "MTY"}
-        Dim bounds As String() = {"Inbound", "Outbound"}
-        Dim sizes As Integer() = {20, 40, 45}
-        Dim tempRow As DataRow
-        For Each registry As DataRow In RegistryList(Month, Year).Rows
-            With vesselVolumes.Where(Function(vol) vol.Registry = registry(0))
-                tempRow = MonthlyThroughputData.MonthlyThroughputVolume.NewRow
-                Dim counter As Integer = 0
-                For Each bound In bounds
-                    For Each freight In freightkinds
-                        For Each size In sizes
-
-                            tempRow.Item(counter) = .Sum(Function(vol) vol.Units(bound, freight, size))
-                            counter += 1
-                        Next
-                    Next
-
-                Next
-                tempRow("Gearbox20") = .Sum(Function(vol) vol.Gearbox(20))
-                tempRow("Gearbox40") = .Sum(Function(vol) vol.Gearbox(40))
-                tempRow("Hatchcover") = .Sum(Function(vol) vol.HatchCover)
-                tempRow("ShiftFull") = .Sum(Function(vol) vol.Shifting("FCL"))
-                tempRow("ShiftEmpty") = .Sum(Function(vol) vol.Shifting("MTY"))
-
-                With .First
-                    tempRow("VesselName") = .VesselName
-                    tempRow("Voyage") = .Voyage
-                    tempRow("Registry") = .Registry
-                    tempRow("ATA") = .ATA
-                    tempRow("ATD") = .ATD
-                    tempRow("WindowState") = .WindowState
-                    tempRow("BerthWindow") = .BerthWindow
-                    tempRow("Owner") = TranslateOwner(.OwnerVessel)
-                End With
-
-                MonthlyThroughputData.MonthlyThroughputVolume.AddMonthlyThroughputVolumeRow(tempRow)
-            End With
-        Next
-
-    End Sub
-
-    Private Function TranslateOwner(ownerVessel As String) As Object
-        For Each key As String In VesselLines.Keys
-            If VesselLines.Item(key).Contains(ownerVessel) Then Return key
-        Next
-        Return "OTHERS"
-    End Function
-
-    Private Function ReadFullNamesCSV() As Dictionary(Of String, String)
-        Dim lines As New Dictionary(Of String, String)
-        Using Reader As New Microsoft.VisualBasic.FileIO.TextFieldParser($"{Application.StartupPath}/VesselLines.csv")
-            Reader.TextFieldType = FileIO.FieldType.Delimited
-            Reader.SetDelimiters(",")
-            While Not Reader.EndOfData
-                Dim current As String() = Reader.ReadFields()
-                lines.Add(current(1), current(0))
-            End While
-        End Using
-        Return lines
-    End Function
 
     Private Sub CheckWindowStates(vesselVolumes As List(Of VesselVolume))
         Dim noWindowStates As List(Of String)
@@ -176,14 +96,14 @@ SELECT [registry]
         Return consolidatedDatatable
     End Function
 
-    Private Function ReadVesselLinesCSV() As Dictionary(Of String, String())
+    Private Function ReadShippingLinesCSV() As Dictionary(Of String, String())
         Dim lines As New Dictionary(Of String, String())
-        Using Reader As New Microsoft.VisualBasic.FileIO.TextFieldParser($"{Application.StartupPath}/VesselLines.csv")
+        Using Reader As New Microsoft.VisualBasic.FileIO.TextFieldParser($"{Application.StartupPath}/ShippingLines.csv")
             Reader.TextFieldType = FileIO.FieldType.Delimited
             Reader.SetDelimiters(",")
             While Not Reader.EndOfData
                 Dim current As String() = Reader.ReadFields()
-                lines.Add(current(1), current.Skip(1).ToArray)
+                lines.Add(current(0), current)
             End While
         End Using
         Return lines
@@ -191,14 +111,11 @@ SELECT [registry]
 
     Private OPConnection As ADODB.Connection
     Private N4Connection As ADODB.Connection
-    Private ReadOnly VesselLines As Dictionary(Of String, String())
-    Private ReadOnly FullNames As Dictionary(Of String, String)
-    Private MonthlyThroughputData As ThroughputVolumeDatabase
+    Public ReadOnly ShippingLines As Dictionary(Of String, String())
     Public ReadOnly Property Month As Integer Implements IMonthlyThroughputVolume.Month
     Public ReadOnly Property Year As Integer Implements IMonthlyThroughputVolume.Year
     Public ReadOnly Property VesselMovementReports As List(Of VMRClass) Implements IMonthlyThroughputVolume.VesselMovementReports
     Public ReadOnly Property VesselVolumes As List(Of VesselVolume) Implements IMonthlyThroughputVolume.VesselVolumes
-    Public ReadOnly Property Report As MonthlyThroughputReport
 
 
     Public Sub RetrieveVesselMovementReports(Month As Integer, Year As Integer) Implements IMonthlyThroughputVolume.RetrieveVesselMovementReports
@@ -208,7 +125,7 @@ SELECT [registry]
 
     End Sub
 
-    Private Function RegistryList(month As Integer, year As Integer) As DataTable
+    Public Function RegistryList(month As Integer, year As Integer) As DataTable
         Dim retrieveRegistries As New ADODB.Command
         OPConnection.Open()
         retrieveRegistries.ActiveConnection = OPConnection

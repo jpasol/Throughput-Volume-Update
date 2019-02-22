@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class MonthlyThroughputReport
+Public Class MTDMonthlyThroughputReport
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class MonthlyThroughputReport
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "MonthlyThroughputReport.rpt"
+            Return "MTDMonthlyThroughputReport.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class MonthlyThroughputReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Throughput_Volume_Update.MonthlyThroughputReport.rpt"
+            Return "Throughput_Volume_Update.MTDMonthlyThroughputReport.rpt"
         End Get
         Set
             'Do nothing
@@ -126,7 +126,7 @@ Public Class MonthlyThroughputReport
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedMonthlyThroughputReport
+Public Class CachedMTDMonthlyThroughputReport
     Inherits Component
     Implements ICachedReport
     
@@ -168,7 +168,7 @@ Public Class CachedMonthlyThroughputReport
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As MonthlyThroughputReport = New MonthlyThroughputReport()
+        Dim rpt As MTDMonthlyThroughputReport = New MTDMonthlyThroughputReport()
         rpt.Site = Me.Site
         Return rpt
     End Function

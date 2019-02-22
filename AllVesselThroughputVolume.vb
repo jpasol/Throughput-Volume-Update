@@ -4,12 +4,22 @@ Imports Vessel_Movement_Report_Creator
 Public Class AllVesselThroughputVolume
     Inherits MonthlyThroughputVolume
     Public Sub New(Month As Integer, Year As Integer)
+
         MyBase.New(Month, Year)
 
-        Report = New AllVesselThroughputVolumeReport
         AllVesselThroughputVolumeDatabase = New ThroughputVolumeDatabase
 
+        PreviousMonthlyThroughputVolume = New List(Of MonthlyThroughputVolume)
+        For prevMonth As Integer = 1 To Month - 1
+            PreviousMonthlyThroughputVolume.Add(New MonthlyThroughputVolume(prevMonth, Year))
+        Next
+
         FormatReport(MyBase.VesselVolumes)
+        For Each volume As MonthlyThroughputVolume In PreviousMonthlyThroughputVolume
+            FormatReport(volume.VesselVolumes)
+        Next
+
+        Report = New AllVesselThroughputVolumeReport
         Report.SetDataSource(AllVesselThroughputVolumeDatabase)
         Report.SetParameterValue("month", Month)
         Report.SetParameterValue("year", Year)
@@ -55,4 +65,5 @@ Public Class AllVesselThroughputVolume
 
     Public Property Report As AllVesselThroughputVolumeReport
     Private AllVesselThroughputVolumeDatabase As ThroughputVolumeDatabase
+    Private PreviousMonthlyThroughputVolume As List(Of MonthlyThroughputVolume)
 End Class

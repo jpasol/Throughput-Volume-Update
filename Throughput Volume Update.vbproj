@@ -127,12 +127,13 @@
     <Compile Include="IShippingVolume.vb" />
     <Compile Include="IVesselVolume.vb" />
     <Compile Include="IVolumeBreakdown.vb" />
-    <Compile Include="MonthlyThroughputReport.vb">
+    <Compile Include="MTDMonthlyThroughputReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MonthlyThroughputReport.rpt</DependentUpon>
+      <DependentUpon>MTDMonthlyThroughputReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MTDMonthlyThroughputVolume.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -226,9 +227,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CummulativeVolumeReport.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="MonthlyThroughputReport.rpt">
+    <EmbeddedResource Include="MTDMonthlyThroughputReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>MonthlyThroughputReport.vb</LastGenOutput>
+      <LastGenOutput>MTDMonthlyThroughputReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
