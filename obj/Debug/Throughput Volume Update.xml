@@ -67,12 +67,42 @@ Represents a strongly typed in-memory cache of data.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:Throughput_Volume_Update.ThroughputVolumeDatabase.MonthlyThroughputVolumeDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Throughput_Volume_Update.ThroughputVolumeDatabase.FullNamesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:Throughput_Volume_Update.ThroughputVolumeDatabase.AllVesselThroughputVolumeDataRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
+<member name="T:Throughput_Volume_Update.ThroughputVolumeDatabase.MonthlyThroughputVolumeRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Throughput_Volume_Update.ThroughputVolumeDatabase.FullNamesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
 <member name="T:Throughput_Volume_Update.ThroughputVolumeDatabase.AllVesselThroughputVolumeDataRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Throughput_Volume_Update.ThroughputVolumeDatabase.MonthlyThroughputVolumeRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Throughput_Volume_Update.ThroughputVolumeDatabase.FullNamesRowChangeEvent">
 <summary>
 Row event argument class
 </summary>

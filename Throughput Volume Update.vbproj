@@ -176,6 +176,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ThroughputVolumeDatabase.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ThroughputVolumeDatabase.vb">
+      <DependentUpon>ThroughputVolumeDatabase.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TotalBerthWindowVolume.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -284,6 +287,9 @@
     <None Include="ThroughputVolumeDatabase.xss">
       <DependentUpon>ThroughputVolumeDatabase.xsd</DependentUpon>
     </None>
+    <EmbeddedResource Include="VesselLines.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
