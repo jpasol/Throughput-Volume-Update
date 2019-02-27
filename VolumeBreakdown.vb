@@ -5,10 +5,11 @@ Public Class VolumeBreakdown
 
     Private ThroughputVolumeData As New Throughput
     Private BerthWindowVolumeData As New Throughput
+    Public ReadOnly Property Year As Integer
 
-    Public Sub New()
+    Public Sub New(year As Integer)
         MyBase.New
-
+        Me.Year = year
         FormatThroughputVolumes(ThroughputVolumes)
         FormatBerthWindowVolumes(BerthWindowVolumes)
 
@@ -24,7 +25,7 @@ Public Class VolumeBreakdown
                 BerthWindowVolumes.Add(New ShippingVolume("All",
                                                       {""},
                                                       month,
-                                                      2018,
+                                                      Year,
                                                       berthwindow,
                                                       Remarks:="",
                                                       UnitRemarks:="Throughput",
@@ -39,7 +40,7 @@ Public Class VolumeBreakdown
             ThroughputVolumes.Add(New ShippingVolume("All",
                                                       {""},
                                                       month,
-                                                      2018,
+                                                      Year,
                                                       0,
                                                       Remarks:="",
                                                       UnitRemarks:="Throughput",

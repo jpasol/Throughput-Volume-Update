@@ -43,7 +43,7 @@ Public Class BerthWindowReport
         For Each line As String In berthWindowLines.Keys
             For month As Integer = 1 To 12
                 For berth As Integer = 1 To 2
-                    ShippingVolumes.Add(New ShippingVolume(line, berthWindowLines.Item(line), month, Date.Now.Year, 1))
+                    ShippingVolumes.Add(New ShippingVolume(line, berthWindowLines.Item(line), month, Date.Now.Year, berth))
                 Next
             Next
         Next

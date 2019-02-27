@@ -76,7 +76,11 @@ Select windowstate from tvr_onoffwindow where registry = '{Me.Registry}'
 
     Public ReadOnly Property HatchCover As Integer Implements IVesselVolume.HatchCover
         Get
-            With VMR.GetvesselMovementReportData.dtCMU.AsEnumerable.Where(Function(cmu) cmu("Description").ToString.Contains("HC"))
+            With VMR.GetvesselMovementReportData.dtCMU.AsEnumerable.
+                    Where(Function(cmu) cmu("Line") = Line And
+                                        cmu("Description").ToString.Contains("HC")).
+                    Select(Function(cmu) cmu("Description"))
+
                 Return .Sum(Function(desc) desc.ToString.Substring(0, desc.ToString.IndexOf("HC")))
             End With
         End Get
@@ -93,7 +97,9 @@ Select windowstate from tvr_onoffwindow where registry = '{Me.Registry}'
             End Select
 
             With VMR.GetvesselMovementReportData.dtCMU.AsEnumerable.
-                Where(Function(cmu) cmu("Description").ToString.Contains(freight))
+                Where(Function(cmu) cmu("Line") = Line And
+                                    cmu("Description").ToString.Contains(freight)).
+                Select(Function(cmu) cmu("Description"))
 
                 .Sum(Function(desc) desc.ToString.Substring(0, desc.ToString.IndexOf("X")))
             End With
@@ -103,7 +109,10 @@ Select windowstate from tvr_onoffwindow where registry = '{Me.Registry}'
     Public ReadOnly Property Gearbox(Size As Integer) As Integer Implements IVesselVolume.Gearbox
         Get
             With VMR.GetvesselMovementReportData.dtCMU.AsEnumerable.
-                Where(Function(cmu) cmu("Description").ToString.Contains("GB") And cmu("Description").ToString.Contains($"{Size}"))
+                Where(Function(cmu) cmu("Line") = Line And
+                                    cmu("Description").ToString.Contains("GB") And
+                                    cmu("Description").ToString.Contains($"{Size}")).
+                Select(Function(cmu) cmu("Description"))
 
                 Return .Sum(Function(desc) desc.ToString.Substring(0, desc.ToString.IndexOf("X")))
             End With

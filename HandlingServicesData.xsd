@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HandlingServicesData" targetNamespace="http://tempuri.org/HandlingServicesData.xsd" xmlns:mstns="http://tempuri.org/HandlingServicesData.xsd" xmlns="http://tempuri.org/HandlingServicesData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HandlingServicesData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="HandlingServicesData" msprop:Generator_UserDSName="HandlingServicesData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ChargeableHandling" msprop:Generator_TableClassName="ChargeableHandlingDataTable" msprop:Generator_TableVarName="tableChargeableHandling" msprop:Generator_RowChangedName="ChargeableHandlingRowChanged" msprop:Generator_TablePropName="ChargeableHandling" msprop:Generator_RowDeletingName="ChargeableHandlingRowDeleting" msprop:Generator_RowChangingName="ChargeableHandlingRowChanging" msprop:Generator_RowEvHandlerName="ChargeableHandlingRowChangeEventHandler" msprop:Generator_RowDeletedName="ChargeableHandlingRowDeleted" msprop:Generator_RowClassName="ChargeableHandlingRow" msprop:Generator_UserTableName="ChargeableHandling" msprop:Generator_RowEvArgName="ChargeableHandlingRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="Gearbox20" msprop:Generator_ColumnVarNameInTable="columnGearbox20" msprop:Generator_ColumnPropNameInRow="Gearbox20" msprop:Generator_ColumnPropNameInTable="Gearbox20Column" msprop:Generator_UserColumnName="Gearbox20" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="Gearbox40" msprop:Generator_ColumnVarNameInTable="columnGearbox40" msprop:Generator_ColumnPropNameInRow="Gearbox40" msprop:Generator_ColumnPropNameInTable="Gearbox40Column" msprop:Generator_UserColumnName="Gearbox40" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="HatchCover" msprop:Generator_ColumnVarNameInTable="columnHatchCover" msprop:Generator_ColumnPropNameInRow="HatchCover" msprop:Generator_ColumnPropNameInTable="HatchCoverColumn" msprop:Generator_UserColumnName="HatchCover" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="ShiftingFull" msprop:Generator_ColumnVarNameInTable="columnShiftingFull" msprop:Generator_ColumnPropNameInRow="ShiftingFull" msprop:Generator_ColumnPropNameInTable="ShiftingFullColumn" msprop:Generator_UserColumnName="ShiftingFull" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="ShiftingEmpty" msprop:Generator_ColumnVarNameInTable="columnShiftingEmpty" msprop:Generator_ColumnPropNameInRow="ShiftingEmpty" msprop:Generator_ColumnPropNameInTable="ShiftingEmptyColumn" msprop:Generator_UserColumnName="ShiftingEmpty" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="BerthWindow" msprop:Generator_ColumnVarNameInTable="columnBerthWindow" msprop:Generator_ColumnPropNameInRow="BerthWindow" msprop:Generator_ColumnPropNameInTable="BerthWindowColumn" msprop:Generator_UserColumnName="BerthWindow" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VesselHandling" msprop:Generator_TableClassName="VesselHandlingDataTable" msprop:Generator_TableVarName="tableVesselHandling" msprop:Generator_RowChangedName="VesselHandlingRowChanged" msprop:Generator_TablePropName="VesselHandling" msprop:Generator_RowDeletingName="VesselHandlingRowDeleting" msprop:Generator_RowChangingName="VesselHandlingRowChanging" msprop:Generator_RowEvHandlerName="VesselHandlingRowChangeEventHandler" msprop:Generator_RowDeletedName="VesselHandlingRowDeleted" msprop:Generator_RowClassName="VesselHandlingRow" msprop:Generator_UserTableName="VesselHandling" msprop:Generator_RowEvArgName="VesselHandlingRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="VesselsNCT1" msprop:Generator_ColumnVarNameInTable="columnVesselsNCT1" msprop:Generator_ColumnPropNameInRow="VesselsNCT1" msprop:Generator_ColumnPropNameInTable="VesselsNCT1Column" msprop:Generator_UserColumnName="VesselsNCT1" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="VesselsNCT2" msprop:Generator_ColumnVarNameInTable="columnVesselsNCT2" msprop:Generator_ColumnPropNameInRow="VesselsNCT2" msprop:Generator_ColumnPropNameInTable="VesselsNCT2Column" msprop:Generator_UserColumnName="VesselsNCT2" type="xs:long" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

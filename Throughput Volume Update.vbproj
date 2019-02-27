@@ -83,6 +83,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllVesselThroughputVolume.vb" />
+    <Compile Include="BerthHandlingServices.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BerthHandlingServices.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BerthWindowReport.vb" />
     <Compile Include="BerthWindowVolume.vb">
       <AutoGen>True</AutoGen>
@@ -121,12 +127,42 @@
       <DependentUpon>CummulativeVolumeReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="HandlingServices.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HandlingServicesData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HandlingServicesData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HandlingServicesReport.vb">
+      <DependentUpon>HandlingServicesReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="IBerthWindowReport.vb" />
     <Compile Include="ICummulativeReport.vb" />
     <Compile Include="IMonthlyThroughputVolume.vb" />
     <Compile Include="IShippingVolume.vb" />
     <Compile Include="IVesselVolume.vb" />
     <Compile Include="IVolumeBreakdown.vb" />
+    <Compile Include="LOATable.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LOATableReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LOATableReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MTDMonthlyCoLoadVolume.vb" />
+    <Compile Include="MTDMonthlyCoLoadVolumeReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MTDMonthlyCoLoadVolumeReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MTDMonthlyThroughputReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -190,6 +226,19 @@
       <DependentUpon>TotalBerthWindowVolume.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TotalHandlingServices.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalHandlingServices.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Vessel.vb" />
+    <Compile Include="VesselCount.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VesselCount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="VesselVolume.vb" />
     <Compile Include="MonthlyThroughputVolume.vb" />
     <Compile Include="VolumeBreakdown.vb">
@@ -203,6 +252,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BerthHandlingServices.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BerthHandlingServices.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BerthWindowVolume.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BerthWindowVolume.vb</LastGenOutput>
@@ -226,6 +279,18 @@
     <EmbeddedResource Include="CummulativeVolumeReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CummulativeVolumeReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HandlingServicesReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HandlingServicesReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOATableReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LOATableReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MTDMonthlyCoLoadVolumeReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MTDMonthlyCoLoadVolumeReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MTDMonthlyThroughputReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -252,12 +317,31 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>TotalBerthWindowVolume.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="TotalHandlingServices.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TotalHandlingServices.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VesselCount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VesselCount.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="VolumeBreakdownReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VolumeBreakdownReport.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="HandlingServicesData.xsc">
+      <DependentUpon>HandlingServicesData.xsd</DependentUpon>
+    </None>
+    <None Include="HandlingServicesData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HandlingServicesData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="HandlingServicesData.xss">
+      <DependentUpon>HandlingServicesData.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -267,9 +351,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="ShippingLines.csv">
+    <Content Include="ShippingLines.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="Throughput.xsc">
       <DependentUpon>Throughput.xsd</DependentUpon>
     </None>
@@ -292,9 +376,9 @@
     <None Include="ThroughputVolumeDatabase.xss">
       <DependentUpon>ThroughputVolumeDatabase.xsd</DependentUpon>
     </None>
-    <EmbeddedResource Include="VesselLines.csv">
+    <Content Include="VesselLines.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
