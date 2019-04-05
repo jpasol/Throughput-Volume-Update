@@ -96,7 +96,7 @@ Public Class HandlingServices
     Private Function Registries(month As Integer, year As Integer) As List(Of VMRClass)
         Registries = New List(Of VMRClass)
         For Each registry As String In CreatedVMR(month, year)
-            Registries.Add(New VMRClass(registry, N4Connection, OPConnection, ""))
+            Registries.Add(New VMRClass(registry, ""))
         Next
     End Function
 

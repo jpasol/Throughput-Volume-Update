@@ -45,7 +45,7 @@ Public Class ShippingVolume
 
     Private Sub RetrieveInfo()
         For Each registry As String In RegistryList()
-            VesselMovementReports.Add(New VMRClass(registry, N4Connection, OPConnection, ""))
+            VesselMovementReports.Add(New VMRClass(registry, ""))
         Next
     End Sub
 

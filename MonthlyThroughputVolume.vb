@@ -120,7 +120,7 @@ SELECT [registry]
 
     Public Sub RetrieveVesselMovementReports(Month As Integer, Year As Integer) Implements IMonthlyThroughputVolume.RetrieveVesselMovementReports
         For Each registryRow As DataRow In RegistryList(Month, Year).Rows
-            VesselMovementReports.Add(New VMRClass(registryRow("registry"), N4Connection, OPConnection, ""))
+            VesselMovementReports.Add(New VMRClass(registryRow("registry"), ""))
         Next
 
     End Sub
