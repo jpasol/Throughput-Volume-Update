@@ -106,8 +106,8 @@ Public Class MTDMonthlyThroughputVolume
     End Function
 
     Private ReadOnly VesselLines As Dictionary(Of String, String())
-    Private ReadOnly FullNames As Dictionary(Of String, String)
-    Private MonthlyThroughputData As ThroughputVolumeDatabase
+    Public ReadOnly FullNames As Dictionary(Of String, String)
+    Public MonthlyThroughputData As ThroughputVolumeDatabase
     Public ReadOnly Property Report As MTDMonthlyThroughputReport
 
 End Class
