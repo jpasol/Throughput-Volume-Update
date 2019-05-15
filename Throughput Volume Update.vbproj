@@ -122,9 +122,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CummulativeVolumeReport.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>CummulativeVolumeReport.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="HandlingServices.vb">

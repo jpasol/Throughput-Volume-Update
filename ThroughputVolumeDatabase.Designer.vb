@@ -473,6 +473,8 @@ Partial Public Class ThroughputVolumeDatabase
         
         Private columnMonth As Global.System.Data.DataColumn
         
+        Private columnYear As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -709,6 +711,14 @@ Partial Public Class ThroughputVolumeDatabase
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property YearColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnYear
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -770,9 +780,10 @@ Partial Public Class ThroughputVolumeDatabase
                     ByVal VesselVolume As String,  _
                     ByVal Service As String,  _
                     ByVal LOA As Long,  _
-                    ByVal Month As Long) As AllVesselThroughputVolumeDataRow
+                    ByVal Month As Long,  _
+                    ByVal Year As Long) As AllVesselThroughputVolumeDataRow
             Dim rowAllVesselThroughputVolumeDataRow As AllVesselThroughputVolumeDataRow = CType(Me.NewRow,AllVesselThroughputVolumeDataRow)
-            Dim columnValuesArray() As Object = New Object() {InboundLoaded20, InboundLoaded40, InboundLoaded45, InboundEmpty20, InboundEmpty40, InboundEmpty45, OutboundLoaded20, OutboundLoaded40, OutboundLoaded45, OutboundEmpty20, OutboundEmpty40, OutboundEmpty45, VesselName, Voyage, Registry, ATA, ATD, WindowState, Remarks, Line, BerthWindow, VesselVolume, Service, LOA, Month}
+            Dim columnValuesArray() As Object = New Object() {InboundLoaded20, InboundLoaded40, InboundLoaded45, InboundEmpty20, InboundEmpty40, InboundEmpty45, OutboundLoaded20, OutboundLoaded40, OutboundLoaded45, OutboundEmpty20, OutboundEmpty40, OutboundEmpty45, VesselName, Voyage, Registry, ATA, ATD, WindowState, Remarks, Line, BerthWindow, VesselVolume, Service, LOA, Month, Year}
             rowAllVesselThroughputVolumeDataRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowAllVesselThroughputVolumeDataRow)
             Return rowAllVesselThroughputVolumeDataRow
@@ -820,6 +831,7 @@ Partial Public Class ThroughputVolumeDatabase
             Me.columnService = MyBase.Columns("Service")
             Me.columnLOA = MyBase.Columns("LOA")
             Me.columnMonth = MyBase.Columns("Month")
+            Me.columnYear = MyBase.Columns("Year")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -875,6 +887,8 @@ Partial Public Class ThroughputVolumeDatabase
             MyBase.Columns.Add(Me.columnLOA)
             Me.columnMonth = New Global.System.Data.DataColumn("Month", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMonth)
+            Me.columnYear = New Global.System.Data.DataColumn("Year", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnYear)
             Me.columnInboundLoaded20.DefaultValue = CType(0,Long)
             Me.columnInboundLoaded40.DefaultValue = CType(0,Long)
             Me.columnInboundLoaded45.DefaultValue = CType(0,Long)
@@ -3112,6 +3126,21 @@ Partial Public Class ThroughputVolumeDatabase
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Year() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableAllVesselThroughputVolumeData.YearColumn),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Year' in table 'AllVesselThroughputVolumeData' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAllVesselThroughputVolumeData.YearColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsInboundLoaded20Null() As Boolean
             Return Me.IsNull(Me.tableAllVesselThroughputVolumeData.InboundLoaded20Column)
         End Function
@@ -3396,6 +3425,18 @@ Partial Public Class ThroughputVolumeDatabase
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetMonthNull()
             Me(Me.tableAllVesselThroughputVolumeData.MonthColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsYearNull() As Boolean
+            Return Me.IsNull(Me.tableAllVesselThroughputVolumeData.YearColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetYearNull()
+            Me(Me.tableAllVesselThroughputVolumeData.YearColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

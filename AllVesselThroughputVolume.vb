@@ -58,12 +58,13 @@ Public Class AllVesselThroughputVolume
             tempRow("Service") = volume.Service
             tempRow("LOA") = volume.LOA
             tempRow("Month") = volume.Month
+            tempRow("Year") = volume.Year
 
             AllVesselThroughputVolumeDatabase.AllVesselThroughputVolumeData.AddAllVesselThroughputVolumeDataRow(tempRow)
         Next
     End Sub
 
     Public Property Report As AllVesselThroughputVolumeReport
-    Private AllVesselThroughputVolumeDatabase As ThroughputVolumeDatabase
+    Public AllVesselThroughputVolumeDatabase As ThroughputVolumeDatabase
     Private PreviousMonthlyThroughputVolume As List(Of MonthlyThroughputVolume)
 End Class
