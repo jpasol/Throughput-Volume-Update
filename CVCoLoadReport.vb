@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class CummulativeVolumeReport
+Public Class CVCoLoadReport
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class CummulativeVolumeReport
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "CummulativeVolumeReport.rpt"
+            Return "CVCoLoadReport.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class CummulativeVolumeReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Throughput_Volume_Update.CummulativeVolumeReport.rpt"
+            Return "Throughput_Volume_Update.CVCoLoadReport.rpt"
         End Get
         Set
             'Do nothing
@@ -62,7 +62,7 @@ Public Class CummulativeVolumeReport
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property PageHeaderSection1() As CrystalDecisions.CrystalReports.Engine.Section
+    Public ReadOnly Property Section2() As CrystalDecisions.CrystalReports.Engine.Section
         Get
             Return Me.ReportDefinition.Sections(1)
         End Get
@@ -70,7 +70,7 @@ Public Class CummulativeVolumeReport
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property GroupHeaderSection1() As CrystalDecisions.CrystalReports.Engine.Section
+    Public ReadOnly Property GroupHeaderSection2() As CrystalDecisions.CrystalReports.Engine.Section
         Get
             Return Me.ReportDefinition.Sections(2)
         End Get
@@ -78,7 +78,7 @@ Public Class CummulativeVolumeReport
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property GroupHeaderSection2() As CrystalDecisions.CrystalReports.Engine.Section
+    Public ReadOnly Property GroupHeaderSection1() As CrystalDecisions.CrystalReports.Engine.Section
         Get
             Return Me.ReportDefinition.Sections(3)
         End Get
@@ -110,7 +110,7 @@ Public Class CummulativeVolumeReport
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property GroupFooterSection1() As CrystalDecisions.CrystalReports.Engine.Section
+    Public ReadOnly Property GroupFooterSection2() As CrystalDecisions.CrystalReports.Engine.Section
         Get
             Return Me.ReportDefinition.Sections(7)
         End Get
@@ -150,7 +150,7 @@ Public Class CummulativeVolumeReport
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedCummulativeVolumeReport
+Public Class CachedCVCoLoadReport
     Inherits Component
     Implements ICachedReport
     
@@ -192,7 +192,7 @@ Public Class CachedCummulativeVolumeReport
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As CummulativeVolumeReport = New CummulativeVolumeReport()
+        Dim rpt As CVCoLoadReport = New CVCoLoadReport()
         rpt.Site = Me.Site
         Return rpt
     End Function
