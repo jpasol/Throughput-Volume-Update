@@ -12,42 +12,41 @@ Public Class VesselVolume
         Me.Line = Line
         Me.Month = Month
         Me.Year = Year
-        Me.WindowState = GetOnOffWindow(Me.Registry)
-        Me.ShippingLines = ReadCSV()
+        'Me.ShippingLines = ReadCSV()
 
     End Sub
 
-    Private Function GetOnOffWindow(registry As String) As String
-        Dim state As String = ""
-        Dim windowState As New ADODB.Command
-        OPConnection.Open()
+    '    Private Function GetOnOffWindow(registry As String) As String
+    '        Dim state As String = ""
+    '        Dim windowState As New ADODB.Command
+    '        OPConnection.Open()
 
-        With windowState
-            .ActiveConnection = OPConnection
-            .CommandText = $"
-Select windowstate from tvr_onoffwindow where registry = '{Me.Registry}'
-"
-            With .Execute
-                If Not .EOF Then state = .Fields(0).Value
-            End With
+    '        With windowState
+    '            .ActiveConnection = OPConnection
+    '            .CommandText = $"
+    'Select windowstate from tvr_onoffwindow where registry = '{Me.Registry}'
+    '"
+    '            With .Execute
+    '                If Not .EOF Then state = .Fields(0).Value
+    '            End With
 
-        End With
-        OPConnection.Close()
-        Return state
-    End Function
+    '        End With
+    '        OPConnection.Close()
+    '        Return state
+    '    End Function
 
-    Private Function ReadCSV() As Dictionary(Of String, String())
-        Dim lines As New Dictionary(Of String, String())
-        Using Reader As New Microsoft.VisualBasic.FileIO.TextFieldParser($"{Application.StartupPath}/ShippingLines.csv")
-            Reader.TextFieldType = FileIO.FieldType.Delimited
-            Reader.SetDelimiters(",")
-            While Not Reader.EndOfData
-                Dim current As String() = Reader.ReadFields()
-                lines.Add(current(0), current)
-            End While
-        End Using
-        Return lines
-    End Function
+    'Private Function ReadCSV() As Dictionary(Of String, String())
+    '    Dim lines As New Dictionary(Of String, String())
+    '    Using Reader As New Microsoft.VisualBasic.FileIO.TextFieldParser($"{Application.StartupPath}/ShippingLines.csv")
+    '        Reader.TextFieldType = FileIO.FieldType.Delimited
+    '        Reader.SetDelimiters(",")
+    '        While Not Reader.EndOfData
+    '            Dim current As String() = Reader.ReadFields()
+    '            lines.Add(current(0), current)
+    '        End While
+    '    End Using
+    '    Return lines
+    'End Function
 
     Private VMR As VMRClass
     Private OPConnection As ADODB.Connection
@@ -154,9 +153,9 @@ Select windowstate from tvr_onoffwindow where registry = '{Me.Registry}'
 
     Public ReadOnly Property Remarks As String Implements IVesselVolume.Remarks
         Get
-            Dim lines As String() = ShippingLines.Item(OwnerVessel)
+            'Dim lines As String() = ShippingLines.Item(OwnerVessel)
             Dim OwnerRemark As IVesselVolume.OwnerRemarks
-            Select Case lines.Contains(Me.Line)
+            Select Case VMR.vmrVessel.Owner = Line
                 Case True
                     OwnerRemark = IVesselVolume.OwnerRemarks.Own
                 Case False
@@ -194,6 +193,10 @@ Select windowstate from tvr_onoffwindow where registry = '{Me.Registry}'
     End Property
 
     Public ReadOnly Property Month As Integer Implements IVesselVolume.Month
-    Public Property WindowState As String Implements IVesselVolume.WindowState
+    Public ReadOnly Property WindowState As String Implements IVesselVolume.WindowState
+        Get
+            Return VMR.vmrVessel.WindowState
+        End Get
+    End Property
     Public ReadOnly Property Year As Integer Implements IVesselVolume.Year
 End Class

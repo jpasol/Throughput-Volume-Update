@@ -16,53 +16,53 @@ Public Class MonthlyThroughputVolume
         VesselMovementReports = New List(Of VMRClass)
         RetrieveVesselMovementReports(Month, Year)
 
-        ShippingLines = New Dictionary(Of String, String())
-        ShippingLines = ReadShippingLinesCSV()
+        'ShippingLines = New Dictionary(Of String, String())
+        'ShippingLines = ReadShippingLinesCSV()
 
         VesselVolumes = New List(Of VesselVolume)
         CreateVesselVolumes(VesselMovementReports)
 
-        CheckWindowStates(VesselVolumes)
+        'CheckWindowStates(VesselVolumes)
     End Sub
 
 
-    Private Sub CheckWindowStates(vesselVolumes As List(Of VesselVolume))
-        Dim noWindowStates As List(Of String)
-        noWindowStates = vesselVolumes.AsEnumerable.Where(Function(volume) volume.WindowState = "").Select(Function(volume) volume.Registry).Distinct.ToList
+    'Private Sub CheckWindowStates(vesselVolumes As List(Of VesselVolume))
+    '    Dim noWindowStates As List(Of String)
+    '    noWindowStates = vesselVolumes.AsEnumerable.Where(Function(volume) volume.WindowState = "").Select(Function(volume) volume.Registry).Distinct.ToList
 
-        If noWindowStates.Count > 0 Then
-            Dim result As Integer = MsgBox($"There are Registries that has no On/Off Window, {vbNewLine}Would you like to update?", vbYesNo)
-            If result = vbYes Then
-                Dim onoffwindow As New OnOffWindow(noWindowStates.ToArray)
-                onoffwindow.ShowDialog()
-            End If
-        End If
+    '    If noWindowStates.Count > 0 Then
+    '        Dim result As Integer = MsgBox($"There are Registries that has no On/Off Window, {vbNewLine}Would you like to update?", vbYesNo)
+    '        If result = vbYes Then
+    '            Dim onoffwindow As New OnOffWindow(noWindowStates.ToArray)
+    '            onoffwindow.ShowDialog()
+    '        End If
+    '    End If
 
-        UpdateWindowStates(noWindowStates.ToArray, vesselVolumes)
-    End Sub
+    '    UpdateWindowStates(noWindowStates.ToArray, vesselVolumes)
+    'End Sub
 
-    Private Sub UpdateWindowStates(toArray() As String, vesselVolumes As List(Of VesselVolume))
-        For Each registry In toArray
-            Dim windowState As String = GetWindowState(registry)
-            For Each volume As VesselVolume In vesselVolumes.AsEnumerable.Where(Function(vol) vol.Registry = registry)
-                volume.WindowState = windowState
-            Next
-        Next
-    End Sub
+    'Private Sub UpdateWindowStates(toArray() As String, vesselVolumes As List(Of VesselVolume))
+    '    For Each registry In toArray
+    '        Dim windowState As String = GetWindowState(registry)
+    '        For Each volume As VesselVolume In vesselVolumes.AsEnumerable.Where(Function(vol) vol.Registry = registry)
+    '            volume.WindowState = windowState
+    '        Next
+    '    Next
+    'End Sub
 
-    Private Function GetWindowState(registry As String) As String
-        Dim getState As New ADODB.Command
-        OPConnection.Open()
-        getState.ActiveConnection = OPConnection
-        getState.CommandText = $"
-SELECT [registry]
+    '    Private Function GetWindowState(registry As String) As String
+    '        Dim getState As New ADODB.Command
+    '        OPConnection.Open()
+    '        getState.ActiveConnection = OPConnection
+    '        getState.CommandText = $"
+    'SELECT [registry]
 
-  FROM [opreports].[dbo].[tvr_onoffwindow] WHERE [registry] = '{registry}'
-"
-        Dim state As String = getState.Execute.Fields(0).Value
-        OPConnection.Close()
-        Return state
-    End Function
+    '  FROM [opreports].[dbo].[tvr_onoffwindow] WHERE [registry] = '{registry}'
+    '"
+    '        Dim state As String = getState.Execute.Fields(0).Value
+    '        OPConnection.Close()
+    '        Return state
+    '    End Function
 
     Private Sub CreateVesselVolumes(vesselMovementReport As List(Of VMRClass))
         For Each vmr As VMRClass In VesselMovementReports

@@ -17,7 +17,7 @@
     ReadOnly Property LOA As Integer
     ReadOnly Property Month As Integer
     ReadOnly Property Year As Integer
-    Property WindowState As String 'enum
+    ReadOnly Property WindowState As String 'enum
 
     Enum Bound
         Inbound
