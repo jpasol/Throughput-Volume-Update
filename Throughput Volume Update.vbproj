@@ -55,14 +55,10 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
@@ -397,10 +393,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Crane Logs Report Creator\Crane Logs Report Creator\Crane Logs Report Creator.vbproj">
-      <Project>{422c491a-19de-47cc-8f27-cb945c1b5733}</Project>
-      <Name>Crane Logs Report Creator</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ITS – Operations Automation of Reports\Project1\Reports Interface.vbproj">
       <Project>{19315380-b270-43b7-83b7-ac163b6f79cd}</Project>
       <Name>Reports Interface</Name>
