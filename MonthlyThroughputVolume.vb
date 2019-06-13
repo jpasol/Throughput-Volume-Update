@@ -1,5 +1,6 @@
 ﻿Imports Throughput_Volume_Update
 Imports Vessel_Movement_Report_Creator
+Imports System.Threading.Tasks
 
 Public Class MonthlyThroughputVolume
     Implements IMonthlyThroughputVolume
@@ -70,8 +71,20 @@ Public Class MonthlyThroughputVolume
                 VesselVolumes.Add(New VesselVolume(vmr, line, Month, Year))
             Next
         Next
-    End Sub
 
+        'Dim maxCores As New ParallelOptions
+        'maxCores.MaxDegreeOfParallelism = Environment.ProcessorCount
+
+        'Parallel.ForEach(VesselMovementReports,
+        '                 maxCores,
+        '                 Sub(vmr)
+        '                     Parallel.ForEach(VMRLines(vmr).AsEnumerable,
+        '                                      maxCores,
+        '                                      Sub(line)
+        '                                          VesselVolumes.Add(New VesselVolume(vmr, line, Month, Year))
+        '                                      End Sub)
+        '                 End Sub)
+    End Sub
     Private Function VMRLines(vmr As VMRClass) As List(Of String)
         Dim ContainerLines As List(Of String) = ConsolidatedContainers(vmr).AsEnumerable.Select(Function(ctn) ctn("line_op").ToString).ToList
         Dim CMULines As List(Of String) = vmr.GetvesselMovementReportData.dtCMU.AsEnumerable.Select(Function(ctn) ctn("Line").ToString).ToList
@@ -119,9 +132,18 @@ Public Class MonthlyThroughputVolume
 
 
     Public Sub RetrieveVesselMovementReports(Month As Integer, Year As Integer) Implements IMonthlyThroughputVolume.RetrieveVesselMovementReports
-        For Each registryRow As DataRow In RegistryList(Month, Year).Rows
-            VesselMovementReports.Add(New VMRClass(registryRow("registry"), ""))
-        Next
+        'For Each registryRow As DataRow In RegistryList(Month, Year).Rows
+        '    VesselMovementReports.Add(New VMRClass(registryRow("registry"), ""))
+        'Next
+
+        Dim maxCores As New ParallelOptions
+        maxCores.MaxDegreeOfParallelism = Environment.ProcessorCount
+
+        Parallel.ForEach(RegistryList(Month, Year).AsEnumerable,
+                         maxCores,
+                         Sub(registryRow)
+                             VesselMovementReports.Add(New VMRClass(registryRow("registry"), ""))
+                         End Sub)
 
     End Sub
 

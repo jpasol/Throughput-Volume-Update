@@ -1,6 +1,7 @@
 ﻿Imports Throughput_Volume_Update
 Imports Reports
 Imports Vessel_Movement_Report_Creator
+Imports Crane_Logs_Report_Creator
 Public Class VesselVolume
     Implements IVesselVolume
 
@@ -196,6 +197,11 @@ Public Class VesselVolume
     Public ReadOnly Property WindowState As String Implements IVesselVolume.WindowState
         Get
             Return VMR.vmrVessel.WindowState
+        End Get
+    End Property
+    Public ReadOnly Property Seguido As Integer
+        Get
+            Return VMR.craneLogsReport.Crane.Min(Function(crn) crn.Delays.Break.Totalhours)
         End Get
     End Property
     Public ReadOnly Property Year As Integer Implements IVesselVolume.Year

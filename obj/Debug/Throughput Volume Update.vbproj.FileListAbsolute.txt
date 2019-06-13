@@ -94,3 +94,5 @@ C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Throughput-Volume-Update\obj\D
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Throughput-Volume-Update\obj\Debug\Throughput Volume Update.dll
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Throughput-Volume-Update\obj\Debug\Throughput Volume Update.xml
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Throughput-Volume-Update\obj\Debug\Throughput Volume Update.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Throughput-Volume-Update\bin\Debug\Crane Logs Report Creator Controls.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Throughput-Volume-Update\bin\Debug\Crane Logs Report Creator Controls.pdb
